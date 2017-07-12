@@ -32,13 +32,14 @@ public class JDBCTest {
 					e.printStackTrace();
 				}
 		}
+		insert(new Person("Akash", 23, Gender.MALE));
 	}
 
 	public static void insert(final Person person) {
 		Connection connection = null;
 		Statement statement = null;
-		final String INSERT = "INSERT INTO TEST VALUES (" + person.getName() + "," + person.getAge() + ","
-				+ person.getGender() + ")";
+		final String INSERT = "INSERT INTO PERSON VALUES (" + person.getName() + "," + person.getAge() + ","
+				+ person.getGender().type + ")";
 		try {
 			connection = getConnection();
 			statement = connection.createStatement();
